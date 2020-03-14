@@ -162,7 +162,7 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize(user)
+  def initialize(**user)
     @name = user[:name]
     @age = user[:age]
     @gender = user[:gender]
@@ -190,6 +190,18 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  def initialize(**user)
+    @name = user[:name]
+    @age = user[:age]
+  end
+
+  def introduce
+    if @age>11
+      puts "こんにちは,#{@name}と申します。宜しくお願い致します"
+    else
+      puts "はいさいまいど〜，#{@name}です！！！"
+    end
+  end
 
 end
 
@@ -205,9 +217,14 @@ end
 class Item
   # 以下を修正して下さい
 
-  def initialize(name)
-    @name = name
+  def initialize(**book)
+    @name = book[:name]
   end
+
+  def name
+    puts "#{@name}"
+  end
+
 end
 
 def q19
