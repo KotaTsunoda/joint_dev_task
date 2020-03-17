@@ -197,12 +197,11 @@ class UserQ18
 
   def introduce
     if @age>11
-      puts "こんにちは,#{@name}と申します。宜しくお願い致します"
+      print "こんにちは,#{@name}と申します。宜しくお願い致します"
     else
-      puts "はいさいまいど〜，#{@name}です！！！"
+      print "はいさいまいど〜，#{@name}です！！！"
     end
   end
-
 end
 
 def q18
@@ -216,13 +215,13 @@ end
 
 class Item
   # 以下を修正して下さい
-
-  def initialize(**book)
-    @name = book[:name]
+    attr_reader :name
+  def initialize(name:)
+    @name = name
   end
 
   def name
-    puts "#{@name}"
+    print "#{@name}"
   end
 
 end
@@ -235,11 +234,36 @@ end
 
 class UserQ20
   # 以下に回答を記載
-
+    attr_reader :name,:age
+  def initialize(**params)
+    @name = params[:name]
+    @age = params[:age]
+  end
 end
 
 class Zoo
   # 以下に回答を記載
+  def initialize(**info)
+    @name = info[:name]
+    @entry_fee = info[:entry_fee]
+  end
+
+  def info_entry_fee(user)
+    plice = case user.age
+    when 0..5 then
+      @entry_fee[:infant]
+    when 5..12 then
+      @entry_fee[:children]
+    when 12..60 then
+      @entry_fee[:adult]
+    when 60..120 then
+      @entry_fee[:senior]
+    else
+      "Out of selection error"
+    end
+
+    puts "#{user.name}さんの入場料金は#{plice.to_s}円です。"
+  end
 
 end
 
