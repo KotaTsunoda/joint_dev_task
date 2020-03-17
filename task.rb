@@ -197,9 +197,9 @@ class UserQ18
 
   def introduce
     if @age>11
-      print "こんにちは,#{@name}と申します。宜しくお願い致します"
+      "こんにちは,#{@name}と申します。宜しくお願い致します"
     else
-      print "はいさいまいど〜，#{@name}です！！！"
+      "はいさいまいど〜，#{@name}です！！！"
     end
   end
 end
@@ -219,11 +219,6 @@ class Item
   def initialize(name:)
     @name = name
   end
-
-  def name
-    print "#{@name}"
-  end
-
 end
 
 def q19
